@@ -14,6 +14,9 @@ server.use(express.urlencoded({extended:true}));
 //Routs
 server.get('/',homeRoutHandler);
 server.post('/search',searchRoutHandler);
+server.get('/searches/new',formHandler);
+server.get('*',errorHandler);
+
 
 
 function homeRoutHandler(req,res){
@@ -32,16 +35,29 @@ function searchRoutHandler (req, res) {
       .then(result => {
           let books = result.body.items.map(book => new Book(book));
           res.render('pages/searches/show', { books: books });
-      });
+      })
+
+      .catch(error => {
+        console.error(error);
+        res.render('pages/searches/error', { errors: error });
+      })
 }
 
 
+function formHandler(req,res){
+res.render('pages/searches/new');
+}
+
+function errorHandler(req,res){
+  res.render('pages/searches/404page');
+
+}
 
 function Book(bookData) {
-  this.title = bookData.volumeInfo.title;
-  this.author = bookData.volumeInfo.authors;
-  this.description = bookData.volumeInfo.description;
-  this.image = bookData.volumeInfo.imageLinks.thumbnail;
+  this.title = (bookData.volumeInfo.title)?bookData.volumeInfo.title :'No title';
+  this.author = (bookData.volumeInfo.authors)? bookData.volumeInfo.authors.join(' , ') : 'Author Not Available';
+  this.description = bookData.volumeInfo.description ||'Description Not Available';
+  this.image = (bookData.volumeInfo.imageLinks)? bookData.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
 
 }
 
