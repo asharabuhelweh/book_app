@@ -1,14 +1,24 @@
-
-
-    <section>
-            <% bookdetail.forEach(data => { %>
-                <div>
-                <img src= <%= data.image_url %>  alt="">
-                <h2> <%= data.title %> </h2>
-                <h3> <%= data.author %> </h3>
-                <p> <%= data.description %> </p>
-                </div>
-                <% }) %>
-            </section>
-            <button><a href=""></a></button>
-
+<section>
+    <% bookdetail.forEach(data => { %>
+        <div>
+        <img src= <%= data.image_url %>  alt="">
+        <h2> <%= data.title %> </h2>
+        <h3> <%= data.author %> </h3>
+        <p> <%= data.description %> </p>
+        </div>
+        <section>
+            <button id="updateBtn">Update</button>
+            <form id="formupdate" action="/updatebook/<%=data.id%>?_method=put" method="POST">
+               <input type="text"  name="author" value="<%= data.author%>" />
+               <input type="text"  name="title" value="<%= data.title%>" />
+               <input type="text"  name="isbn" value="<%=data.isbn%>" />
+               <input type="text"  name="image_url" value="<%= data.image_url%>" />
+               <input type="text"  name="description" value=" <%= data.description%>" />
+               <button type="submit"> Update Book </button>
+           </form>
+           <form action="/deletebook/<%=data.id%>?_method=delete" method="POST">
+            <button>Delete Book</button>
+           </form>
+       </section>
+        <% }) %>
+    </section>

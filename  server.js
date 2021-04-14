@@ -5,6 +5,7 @@ require('dotenv').config();
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 // Application Setups
 const PORT = process.env.PORT || 3030;
@@ -12,6 +13,7 @@ const server = express();
 server.set('view engine','ejs');
 server.use(express.static('./public'));
 server.use(express.urlencoded({extended:true}));
+server.use(methodOverride('_method'));
 
 // Database Setup
 const client = new pg.Client({
@@ -72,14 +74,40 @@ function searchRoutHandler (req, res) {
 function formHandler(req,res){
 res.render('pages/searches/new');
 }
+
+
+
 function formHiddenHandler(req,res){
-  res.send('580');
+  let sql = 'insert into books (author, title, isbn, image_url, description) values ($1,$2,$3,$4,$5) returning *';
+  let {author, title, isbn, image_url, description} = req.body;
+  let safeValues = [author, title, isbn, image_url, description];
+  client.query(sql,safeValues)
+    .then(results => {
+      res.redirect(`/details/${results.rows[0].id}`);
+    });
+  // res.send('580');
   }
+
+  server.put('/updatebook/:bookId',(req,res) => {
+    let {author, title, isbn, image_url, description} = req.body;
+    let safeValues = [author, title, isbn, image_url, description,req.params.bookId];
+    let sql = `update books set author=$1,title=$2,isbn=$3,image_url=$4,description=$5 where id=$6`;
+    client.query(sql,safeValues)
+      .then(res.redirect(`/details/${req.params.bookId}`));
+  });
+  server.delete('/deletebook/:bookId',(req,res) => {
+    let sql = `delete from books where id=$1`;
+    let idvalue = [req.params.bookId];
+    client.query(sql,idvalue)
+      .then(res.redirect('/'));
+  });
 
 function errorHandler(req,res){
   res.render('pages/searches/404page');
 
 }
+
+
 
 // function Book(bookData) {
 //   this.title = (bookData.volumeInfo.title)?bookData.volumeInfo.title :'No title';
