@@ -7,7 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>hello</h1>
+  <header>
+    <h1> Best books! </h1>
+    <a href="/">Home Page</a>
+    <a href="/searches/new">Search</a>
+</header>
   <a href="/searches/new"> Search for a book!</a>
+  <section>
+  <% booksArr.forEach( (book) => { %>
+    <div>
+<img src=<%=book.image_url %>  alt="">
+        <h2><%= book.title %></h2>
+        <h3><%= book.author %></h3>
+        <button><a href="/details/<%=book.id %>">View Details</a></button>
+      </div>
+  <% }); %>
+
+ </section>
 </body>
 </html>
