@@ -1,0 +1,90 @@
+img{
+  width: 500px;
+  height: 700px;
+  padding: 30px;
+  filter: saturate(130%);
+}
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: auto;
+}
+main{
+background-color: #A8A7A7 ;
+  margin: auto;
+  width: 960px;
+}
+header{
+  margin-top: 1em;
+  background-color: #363636 ;
+  color: white;
+
+}
+h1 {
+  font-size: 2em;
+  padding: 0.5em;
+}
+a{
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px;
+  padding-right: 2px;
+}
+nav {
+    float: right;
+    padding-top: 23px;
+    padding-right: 10px;
+}
+h6 {
+  padding: 0 ,10px;
+  padding: 15px 0 15px 0px;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+#search {
+  font-size: 1.5em;
+  padding-bottom: 32px;
+  margin-bottom: 41px;
+
+}
+div{
+  margin: auto;
+  width: 800px;
+  margin-bottom: 70px;
+  margin-top: 30px;
+  box-shadow: rgba(48, 24, 24, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(170, 109, 109, 0.12) 0px 4px 6px, rgba(196, 160, 160, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
+       h2 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 0px 33px 1px;
+}
+h3 {
+  font-size: 22px;
+  padding: 0px 0 158px 0px;
+}
+button {
+  background-color: #CC527A;
+  width: 256px;
+  height: 84px;
+  margin: -63px 0 51px 0;
+
+}
+h4 {
+  font-size: 22px;
+  margin: -115px 0px 31px 0px;
+  padding: 71px;
+  padding-top: 0px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps);
+input[type="radio"] {
+  margin: 47px 0px 62px 0px;
+}
+input[type="text"] {
+  margin-top: 10px;
+  width: 295px;
+  height: 50px;
+  text-align: center;
+}
