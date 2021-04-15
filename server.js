@@ -120,9 +120,9 @@ function errorHandler(req,res){
 function Book (data) {
   this.title = data.volumeInfo.title;
   this.image_url = (data.volumeInfo.imageLinks) ? data.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg' ;
-  this.description = data.volumeInfo.description ? data.volumeInfo.description : 'No descroption for this book' ;
-  this.author = data.volumeInfo.authors;
-  this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers.type : 'no isbn avaliable  ';
+  this.description = data.volumeInfo.description ? data.volumeInfo.description : 'No description for this book' ;
+  this.author = (bookData.volumeInfo.authors)? bookData.volumeInfo.authors.join(' , ') : 'Author Not Available';
+this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers.type : 'no isbn available  ';
 
 
 }

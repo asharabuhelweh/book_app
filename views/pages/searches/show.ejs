@@ -4,33 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style.css">
+
   <title>Document</title>
 </head>
 <body>
+  
   <header>
+    <nav>
+      <a href="/">Home Page</a>
+      <a href="/searches/new">Search</a>
+    </nav>
     <h1> Best books! </h1>
-    <a href="/">Home Page</a>
-    <a href="/searches/new">Search</a>
+
+   
 </header>
+<main>
+
   <ul>
   <% books.forEach( (book) => { %>
-    <li>
-        <div><%= book.title %></div>
-        <div><%= book.author %></div>
-        <div><%= book.description %></div>
-        <div><img src="<%= book.image_url %>" /></div>
+    <div>
+      <img src=<%=book.image_url %>  alt="">
+        <h2><%= book.title %></h2>
+        <h3><%= book.author %></h3>
+        <h4><%= book.description %></div>
         <section>
           <form action="/books" method="POST">
              <input type="hidden"  name="author" value="<%= book.author%>" />
              <input type="hidden"  name="title" value="<%= book.title%>" />
-             <!-- <input type="hidden"  name="isbn" value="isbn" /> -->
              <input type="hidden"  name="image_url" value="<%= book.image_url%>" />
              <input type="hidden"  name="description" value=" <%= book.description%>" />
              <button> Select this Book</button>
          </form>
      </section>
-    </li>
+    </div>
   <% }); %>
 </ul>
+</main>
 </body>
 </html>

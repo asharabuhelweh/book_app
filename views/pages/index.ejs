@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/style.css">
   <title>Document</title>
 </head>
 <body>
   <header>
+    <nav>
+      <a href="/">Home Page</a>
+      <a href="/searches/new">Search</a>
+    </nav>
     <h1> Best books! </h1>
-    <a href="/">Home Page</a>
-    <a href="/searches/new">Search</a>
+
+   
 </header>
-  <a href="/searches/new"> Search for a book!</a>
+<main>
+<h6>Home</h6>
+  <a id="search" href="/searches/new"> Search the Google Books API</a>
   <section>
   <% booksArr.forEach( (book) => { %>
     <div>
@@ -24,5 +31,6 @@
   <% }); %>
 
  </section>
+</main>
 </body>
 </html>
