@@ -4,6 +4,7 @@ img{
   padding: 30px;
   filter: saturate(130%);
   text-align: center;
+  /* filter: drop-shadow(0 0 0.75rem crimson); */
 }
 *{
   box-sizing: border-box;
@@ -55,13 +56,17 @@ div{
   width: 800px;
   margin-bottom: 70px;
   margin-top: 30px;
-  box-shadow: rgba(48, 24, 24, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(170, 109, 109, 0.12) 0px 4px 6px, rgba(196, 160, 160, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
+  box-shadow: rgba(48, 24, 24, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(170, 109, 109, 0.12) 0px 4px 6px, rgba(196, 160, 160, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
        h2 {
     font-size: 20px;
     font-weight: bold;
     padding: 0px 0px 33px 1px;
     text-align: center;
-}
+  }
+
+
 h3 {
   font-size: 22px;
   padding: 0px 0 158px 0px;
@@ -79,6 +84,8 @@ h4 {
   margin: -115px 0px 31px 0px;
   padding: 71px;
   padding-top: 0px;
+  filter: drop-shadow(0 0 0.75rem crimson);
+
 }
 
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps);
@@ -103,16 +110,17 @@ input[type="text"] {
 }
 
 #middle{
+  margin-top: 0;
   margin: auto;
   text-align: center;
 }
-section {
+/* section {
   text-align: center;
   margin-top: 93px;
   background-color: #A8A7A7 ;
 
 
-}
+} */
 #updateBtn {
   width: 232px;
   margin-top: 23px;

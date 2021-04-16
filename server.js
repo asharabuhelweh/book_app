@@ -21,8 +21,8 @@ const client = new pg.Client({
   ssl: process.env.DEV_MODE ? false : { rejectUnauthorized: false },
 });
 //Routs
-server.get('/',homeRoutHandler);
-server.post('/search',searchRoutHandler);
+server.get('/',homeRoutHandler); // read
+server.post('/search',searchRoutHandler); //create with form 
 server.get('/searches/new',formHandler);
 server.post('/books',formHiddenHandler);
 
@@ -52,6 +52,7 @@ server.get('/details/:bookID',(req,res) => {
 
 function searchRoutHandler (req, res) {
   let query = req.body.query;
+  console.log(query);
   let searchOption = req.body.searchOption;
   let keyword = 'intitle';
   if (searchOption == 'author') {
@@ -65,9 +66,9 @@ function searchRoutHandler (req, res) {
           res.render('pages/searches/show', { books: books });
       })
 
-      // .catch(error => {
-      //   res.render('pages/searches/error', { errors: error });
-      // })
+      .catch(error => {
+        res.render('pages/searches/error', { errors: error });
+      })
 }
 
 
@@ -88,7 +89,7 @@ function formHiddenHandler(req,res){
   // res.send('580');
   }
 
-  server.put('/updatebook/:bookId',(req,res) => {
+  server.put('/updatebook/:bookId',(req,res) => { // put for update 
     let {author, title, isbn, image_url, description} = req.body;
     let safeValues = [author, title, isbn, image_url, description,req.params.bookId];
     let sql = `update books set author=$1,title=$2,isbn=$3,image_url=$4,description=$5 where id=$6`;
