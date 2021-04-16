@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style.css">
 
+  <title>Document</title>
+</head>
 <header>
 <nav>
   <a href="/">Home Page</a>
@@ -11,26 +20,31 @@
 
 <section>
     <% bookdetail.forEach(data => { %>
-        <div>
-        <img src= <%= data.image_url %>  alt="">
+        <div id="detail">
+        <img id="offf" src= <%= data.image_url %>  alt="">
         <h2> <%= data.title %> </h2>
         <h3> <%= data.author %> </h3>
-        <p> <%= data.description %> </p>
+        <h4> <%= data.description %> </h4>
         </div>
         
-        <section>
+        <section id="middle">
             <button id="updateBtn">Update</button>
             <form id="formupdate" action="/updatebook/<%=data.id%>?_method=put" method="POST">
                <input type="text"  name="author" value="<%= data.author%>" />
+               <br>
                <input type="text"  name="title" value="<%= data.title%>" />
+               <br>
                <input type="text"  name="isbn" value="<%=data.isbn%>" />
+               <br>
                <input type="text"  name="image_url" value="<%= data.image_url%>" />
+               <br>
                <input type="text"  name="description" value=" <%= data.description%>" />
-               <button type="submit"> Update Book </button>
+               <br>
+               <button id="up" type="submit"> Update Book </button>
            </form>
            
            <form action="/deletebook/<%=data.id%>?_method=delete" method="POST">
-            <button>Delete Book</button>
+            <button id="del">Delete Book</button>
            </form>
            
        </section>

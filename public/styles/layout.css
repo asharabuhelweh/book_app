@@ -3,6 +3,7 @@ img{
   height: 700px;
   padding: 30px;
   filter: saturate(130%);
+  text-align: center;
 }
 *{
   box-sizing: border-box;
@@ -59,10 +60,12 @@ div{
     font-size: 20px;
     font-weight: bold;
     padding: 0px 0px 33px 1px;
+    text-align: center;
 }
 h3 {
   font-size: 22px;
   padding: 0px 0 158px 0px;
+  text-align: center;
 }
 button {
   background-color: #CC527A;
@@ -87,4 +90,38 @@ input[type="text"] {
   width: 295px;
   height: 50px;
   text-align: center;
+}
+
+#detail{
+  margin: auto;
+  text-align: center;
+}
+#showmain{
+  background-color: #A8A7A7 ;
+  margin: auto;
+  width: 960px;
+}
+
+#middle{
+  margin: auto;
+  text-align: center;
+}
+section {
+  text-align: center;
+  margin-top: 93px;
+  background-color: #A8A7A7 ;
+
+
+}
+#updateBtn {
+  width: 232px;
+  margin-top: 23px;
+}
+#del{
+  width: 232px;
+
+}
+#up {
+  width: 232px;
+  margin-top: 52px;
 }
