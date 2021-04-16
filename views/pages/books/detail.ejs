@@ -17,6 +17,7 @@
 
 
 </header>
+<main>
 
 <section>
     <% bookdetail.forEach(data => { %>
@@ -25,6 +26,7 @@
         <h2> <%= data.title %> </h2>
         <h3> <%= data.author %> </h3>
         <h4> <%= data.description %> </h4>
+        <h5><%= data.isbn  %> </h5>
         </div>
         
         <section id="middle">
@@ -50,6 +52,9 @@
        </section>
         <% }) %>
     </section>
+  </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="../js/app.js"></script>
 
     
 
