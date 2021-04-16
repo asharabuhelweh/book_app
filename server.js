@@ -31,12 +31,11 @@ function homeRoutHandler(req,res){
   let SQL = `SELECT * FROM books;`;
   client.query(SQL)
   .then (results=>{
-    console.log(results);
     res.render('pages/index',{booksArr:results.rows})
   })
-  .catch(error=>{
-    res.render('pages/searches/error',{errors:error})
-  })
+  // .catch(error=>{
+  //   res.render('pages/searches/error',{errors:error})
+  // })
 }
 
 server.get('/details/:bookID',(req,res) => {
@@ -61,13 +60,14 @@ function searchRoutHandler (req, res) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=' + keyword + ':' + query;
   superagent.get(url)
       .then(result => {
+        console.log(result.body.items.volumeInfo);
           let books = result.body.items.map(book => new Book(book));
           res.render('pages/searches/show', { books: books });
       })
 
-      .catch(error => {
-        res.render('pages/searches/error', { errors: error });
-      })
+      // .catch(error => {
+      //   res.render('pages/searches/error', { errors: error });
+      // })
 }
 
 
@@ -121,7 +121,7 @@ function Book (data) {
   this.title = data.volumeInfo.title;
   this.image_url = (data.volumeInfo.imageLinks) ? data.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg' ;
   this.description = data.volumeInfo.description ? data.volumeInfo.description : 'No description for this book' ;
-  this.author = (bookData.volumeInfo.authors)? bookData.volumeInfo.authors.join(' , ') : 'Author Not Available';
+  this.author = (data.volumeInfo.authors)? data.volumeInfo.authors.join(' , ') : 'Author Not Available';
 this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers.type : 'no isbn available  ';
 
 
