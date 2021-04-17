@@ -114,13 +114,12 @@ input[type="text"] {
   margin: auto;
   text-align: center;
 }
-/* section {
-  text-align: center;
-  margin-top: 93px;
-  background-color: #A8A7A7 ;
+section {
+  box-shadow: rgba(48, 24, 24, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(170, 109, 109, 0.12) 0px 4px 6px, rgba(196, 160, 160, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 
-} */
+
+}
 #updateBtn {
   width: 232px;
   margin-top: 23px;
@@ -132,4 +131,8 @@ input[type="text"] {
 #up {
   width: 232px;
   margin-top: 52px;
+}
+
+#searchDiv{
+  margin-top: 0;
 }
